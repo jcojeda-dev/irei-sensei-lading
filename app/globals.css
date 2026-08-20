@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Shippori+Mincho:wght@400;500;600;800&family=Yuji+Syuku&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+  --font-serif: "Shippori Mincho", "Noto Serif", serif;
+  --font-brush: "Yuji Syuku", cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #14120f;
+  color: #f3efe3;
+  font-family: var(--font-display);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Textura sutil de papel japonés (washi) */
+.washi-texture {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(243, 239, 227, 0.05), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(243, 239, 227, 0.04), transparent 45%),
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 3px);
+}
+
+.paper-texture-light {
+  background-color: #f3efe3;
+  background-image:
+    radial-gradient(circle at 15% 30%, rgba(20,18,15,0.035), transparent 40%),
+    radial-gradient(circle at 85% 70%, rgba(20,18,15,0.035), transparent 45%),
+    repeating-linear-gradient(115deg, rgba(20,18,15,0.015) 0px, rgba(20,18,15,0.015) 1px, transparent 1px, transparent 3px);
+}
+
+/* Ensō: trazo que se dibuja lentamente */
+.enso-path {
+  stroke-dasharray: 760;
+  stroke-dashoffset: 760;
+  animation: enso-draw 2.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes enso-draw {
+  to {
+    stroke-dashoffset: 40;
+  }
+}
+
+.enso-path.enso-static {
+  animation: none;
+  stroke-dashoffset: 40;
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(243,239,227,0.25), transparent);
+}
