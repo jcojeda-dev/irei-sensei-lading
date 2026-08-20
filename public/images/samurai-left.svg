@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+  <defs>
+    <radialGradient id="redSunGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C8102E" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#C8102E" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="brushBlur">
+      <feGaussianBlur stdDeviation="1.5" />
+    </filter>
+  </defs>
+  <!-- Background Sun blur -->
+  <circle cx="200" cy="220" r="160" fill="url(#redSunGrad)" />
+  
+  <!-- Samurai Silhouette Ink Wash Art -->
+  <g fill="#1A1A1A" opacity="0.85">
+    <!-- Katana blade -->
+    <path d="M 120 480 L 155 240 Q 160 200 162 170 L 165 170 Q 163 205 158 242 L 124 480 Z" fill="#2C2C2C" />
+    <!-- Sword Guard (Tsuba) -->
+    <ellipse cx="122" cy="478" rx="12" ry="5" transform="rotate(-15 122 478)" fill="#0D0D0D" />
+    <!-- Helmet (Kabuto) and Kuwagata horns -->
+    <path d="M 180 140 Q 200 110 230 100 Q 205 120 195 138 Z" fill="#111" />
+    <path d="M 220 140 Q 200 110 170 100 Q 195 120 205 138 Z" fill="#111" />
+    <!-- Helmet Main Dome -->
+    <path d="M 175 145 C 175 125, 225 125, 225 145 C 235 160, 165 160, 175 145 Z" />
+    <!-- Neck Guard (Shikoro) -->
+    <path d="M 165 155 Q 200 165 235 155 Q 240 175 160 175 Z" opacity="0.9" />
+    
+    <!-- Head & Mask (Menpo) -->
+    <path d="M 185 155 Q 200 160 215 155 L 210 180 Q 200 188 190 180 Z" />
+
+    <!-- Shoulders (Sode) & Torso Armor (Do) -->
+    <path d="M 150 185 Q 200 175 250 185 L 260 240 Q 200 250 140 240 Z" />
+    <path d="M 145 195 L 125 250 L 155 260 Z" />
+    <path d="M 255 195 L 275 250 L 245 260 Z" />
+
+    <!-- Arms & Katana Hold Pose -->
+    <path d="M 140 230 Q 120 290 125 360 Q 140 360 150 310 Q 160 260 165 240 Z" />
+    <path d="M 260 230 Q 240 300 200 350 L 180 340 Q 220 280 235 240 Z" />
+
+    <!-- Hakama Skirt / Pants -->
+    <path d="M 145 250 Q 200 260 255 250 L 280 440 Q 200 480 120 440 Z" />
+    <path d="M 160 440 L 140 540 L 185 540 L 195 450 Z" />
+    <path d="M 240 440 L 260 540 L 215 540 L 205 450 Z" />
+
+    <!-- Ink Splatters and Wash Details -->
+    <circle cx="110" cy="200" r="3" opacity="0.6" />
+    <circle cx="280" cy="310" r="4" opacity="0.5" />
+    <circle cx="90" cy="420" r="2" opacity="0.7" />
+    <path d="M 130 540 Q 200 555 270 540 Q 200 545 130 540 Z" opacity="0.8" />
+  </g>
+</svg>

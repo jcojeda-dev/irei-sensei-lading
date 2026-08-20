@@ -2,62 +2,68 @@ import Enso from "./Enso";
 
 export default function Hero() {
   return (
-    <section id="inicio" className="relative flex min-h-screen flex-col bg-charcoal pt-20 md:flex-row md:pt-24">
-      {/* Contenido */}
-      <div className="relative z-10 flex w-full flex-col justify-center px-6 py-14 md:w-[45%] md:px-12 lg:px-16">
-        <div className="mb-4">
-          <img
-            src="/images/IREI_SENSEI_LOGO_PRINCIPAL.png"
-            alt="IREI SENSEI - Personal Trainer"
-            className="h-12 w-auto object-contain md:h-14"
-          />
+    <section id="inicio" className="relative flex min-h-screen flex-col overflow-hidden bg-charcoal pt-20 md:flex-row md:pt-24">
+      {/* Background Japanese Enso Art */}
+      <Enso className="pointer-events-none absolute -left-20 top-1/4 h-[90vw] w-[90vw] max-w-[650px] text-hinomaru/15 md:-left-10 md:h-[500px] md:w-[500px]" static />
+
+      {/* Contenido Izquierda */}
+      <div className="relative z-10 flex w-full flex-col justify-center px-6 py-12 md:w-[50%] md:px-12 lg:px-16">
+        <div className="flex items-center gap-3">
+          <p className="font-serif text-xs uppercase tracking-widest2 text-ivory/80">
+            CUERPO · MENTE · ESPÍRITU
+          </p>
+          <span className="font-serif text-xs text-ivory/40">身体 · 心 · 魂</span>
+          <span className="inline-block rounded-sm bg-hinomaru px-1.5 py-0.5 text-[10px] font-bold text-ivory">印</span>
         </div>
 
-        <h1 className="mt-4 font-display text-[13vw] font-black uppercase leading-[0.98] text-ivory md:text-[3.4vw] lg:text-6xl">
-          Entrena tu cuerpo.
+        <h1 className="mt-6 font-display text-4xl font-black uppercase leading-[0.98] tracking-tight text-ivory md:text-5xl lg:text-6xl">
+          ENTRENA TU CUERPO.
           <br />
-          Forja tu <span className="text-hinomaru">disciplina</span>.
+          FORJA TU <span className="text-hinomaru">DISCIPLINA.</span>
         </h1>
 
-        <p className="mt-6 max-w-md font-serif text-lg text-ivory/75">
+        <p className="mt-5 max-w-md font-serif text-base text-ivory/75 md:text-lg">
           Entrenamiento personalizado orientado a resultados.
         </p>
 
-        <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
           <a
-            href="#programas"
-            className="bg-hinomaru px-7 py-4 text-center font-display text-sm font-bold uppercase tracking-[0.14em] text-ivory transition hover:bg-hinomaru2"
+            href="#contacto"
+            className="flex items-center justify-center gap-2 bg-hinomaru px-7 py-4 font-display text-xs font-bold uppercase tracking-[0.14em] text-ivory transition hover:bg-hinomaru2 shadow-lg"
           >
-            Comienza tu camino
+            COMIENZA TU CAMINO <span>&gt;</span>
           </a>
           <a
             href="#programas"
-            className="border border-ivory/30 px-7 py-4 text-center font-display text-sm font-bold uppercase tracking-[0.14em] text-ivory/85 transition hover:border-ivory"
+            className="flex items-center justify-center border border-ivory/30 bg-graphite/40 px-7 py-4 font-display text-xs font-bold uppercase tracking-[0.14em] text-ivory/90 transition hover:border-ivory"
           >
-            Conoce los programas
+            CONOCE LOS PROGRAMAS
           </a>
-        </div>
-
-        <div className="mt-10 flex items-center gap-3 text-ivory/50">
-          <span className="hairline w-10" />
-          <p className="font-serif text-sm tracking-wide">
-            Cuerpo · Mente · Espíritu
-            <span className="ml-2 font-brush text-base text-ivory/40">身体 · 心 · 魂</span>
-          </p>
         </div>
       </div>
 
-      {/* Imagen */}
-      <div className="relative h-[52vh] w-full overflow-hidden md:h-auto md:w-[55%]">
+      {/* Imagen & Caligrafía Japonesa Derecha */}
+      <div className="relative flex min-h-[450px] w-full items-end justify-center overflow-hidden md:min-h-screen md:w-[50%]">
         <img
-          src="/images/Irei sensei trainer 2.jpg"
+          src="/images/Irei sensei trainer.jpg"
           alt="Isamu Irei - Personal Trainer"
-          className="h-full w-full object-cover object-top"
+          className="relative z-10 h-full max-h-[85vh] w-auto object-cover object-top filter brightness-95 contrast-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/20 to-transparent md:bg-gradient-to-r md:from-charcoal md:via-transparent md:to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent" />
+        <div className="absolute inset-0 z-20 bg-gradient-to-r from-charcoal via-charcoal/20 to-transparent pointer-events-none hidden md:block" />
+        <div className="absolute inset-0 z-20 bg-gradient-to-t from-charcoal via-transparent to-transparent pointer-events-none" />
 
-        <Enso className="pointer-events-none absolute bottom-8 right-8 h-28 w-28 text-hinomaru/40 md:h-40 md:w-40" />
+        {/* Vertical Japanese Calligraphy on Far Right */}
+        <div className="absolute right-6 top-28 z-30 hidden flex-col items-center gap-4 text-ivory/60 lg:flex">
+          <span className="font-serif text-2xl tracking-widest text-ivory/80 [writing-mode:vertical-rl]">
+            継続は力なり
+          </span>
+          <span className="font-display text-[10px] uppercase tracking-[0.2em] text-ivory/40">
+            LA CONSTANCIA ES PODER
+          </span>
+          <span className="flex h-7 w-7 items-center justify-center rounded-sm bg-hinomaru text-xs font-bold text-ivory">
+            印
+          </span>
+        </div>
       </div>
     </section>
   );

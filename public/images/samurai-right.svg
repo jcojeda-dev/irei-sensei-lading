@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+  <defs>
+    <radialGradient id="sunRedDeep" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C8102E" stop-opacity="0.45"/>
+      <stop offset="70%" stop-color="#C8102E" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#C8102E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Large Red Sun behind Armor Samurai -->
+  <circle cx="250" cy="180" r="140" fill="url(#sunRedDeep)" />
+  <circle cx="250" cy="180" r="90" fill="#C8102E" opacity="0.25" />
+
+  <!-- Full Armor Samurai Silhouette Art -->
+  <g fill="#141414" opacity="0.9">
+    <!-- Kabuto Horns (Kuwagata) Big Crescent -->
+    <path d="M 210 110 Q 150 50 110 70 Q 150 85 195 115 Z" fill="#900" />
+    <path d="M 210 110 Q 270 50 310 70 Q 270 85 225 115 Z" fill="#900" />
+
+    <!-- Helmet Dome -->
+    <path d="M 170 120 C 170 90, 250 90, 250 120 C 265 140, 155 140, 170 120 Z" />
+    <!-- Neck Plates -->
+    <path d="M 155 135 Q 210 150 265 135 L 275 160 Q 210 175 145 160 Z" />
+
+    <!-- Mask (Menpo) Teeth & Facial Guard -->
+    <path d="M 185 135 L 235 135 L 225 170 L 195 170 Z" />
+
+    <!-- Shoulder Armor (Sode) Tiered -->
+    <path d="M 130 170 L 175 170 L 165 240 L 115 230 Z" />
+    <path d="M 245 170 L 290 170 L 305 230 L 255 240 Z" />
+
+    <!-- Cuirass / Chest (Do) -->
+    <path d="M 165 170 Q 210 160 255 170 L 265 280 Q 210 295 155 280 Z" />
+
+    <!-- Long Katana angled across -->
+    <path d="M 80 460 L 320 180 L 325 184 L 85 464 Z" fill="#333" />
+    <ellipse cx="280" cy="228" rx="10" ry="6" transform="rotate(-40 280 228)" fill="#800" />
+
+    <!-- Arms holding sword -->
+    <path d="M 160 220 Q 220 230 275 230 L 265 270 Q 210 265 155 255 Z" />
+
+    <!-- Armor Skirt (Kusazuri) -->
+    <path d="M 150 280 Q 210 295 270 280 L 290 410 Q 210 430 130 410 Z" />
+
+    <!-- Greaves & Legs -->
+    <path d="M 155 410 L 140 550 L 190 550 L 195 420 Z" />
+    <path d="M 265 410 L 280 550 L 230 550 L 225 420 Z" />
+
+    <!-- Ink Splashes -->
+    <circle cx="330" cy="140" r="3" opacity="0.5" />
+    <circle cx="80" cy="300" r="4" opacity="0.6" />
+    <circle cx="350" cy="380" r="2" opacity="0.4" />
+  </g>
+</svg>

@@ -9,33 +9,32 @@ export default function CTAFinal() {
         static
       />
 
-      <div className="relative mx-auto max-w-2xl px-6 text-center flex flex-col items-center">
+      <div className="relative z-10 mx-auto max-w-2xl px-6 text-center flex flex-col items-center">
         <img
-          src="/images/IREI_SENSEI_ISOTIPO_ROJO.png"
-          alt="Isotipo Irei Sensei"
-          className="mb-6 h-16 w-auto object-contain"
+          src="/images/IREI_SENSEI_LOGO_PRINCIPAL.png"
+          alt="IREI SENSEI - Personal Trainer"
+          className="mb-8 h-16 w-auto object-contain"
         />
-        <h2 className="font-display text-4xl font-black uppercase leading-[1.05] text-ivory md:text-6xl">
-          Tu camino
-          <br />
-          comienza <span className="text-hinomaru">hoy</span>.
+
+        <h2 className="font-display text-3xl font-black uppercase leading-[1.05] text-ivory md:text-5xl">
+          TU CAMINO COMIENZA HOY.
         </h2>
-        <p className="mx-auto mt-6 max-w-md font-serif text-lg text-ivory/70">
+        <p className="mx-auto mt-4 max-w-md font-serif text-sm leading-relaxed text-ivory/70 md:text-base">
           No necesitas estar en forma para comenzar. Necesitas comenzar para transformarte.
         </p>
 
-        <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+        <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
           <a
             href="#contacto"
-            className="bg-hinomaru px-8 py-4 font-display text-sm font-bold uppercase tracking-[0.14em] text-ivory transition hover:bg-hinomaru2"
+            className="bg-hinomaru px-7 py-4 font-display text-xs font-bold uppercase tracking-[0.14em] text-ivory transition hover:bg-hinomaru2 shadow-lg"
           >
-            Quiero comenzar mi camino
+            QUIERO COMENZAR MI CAMINO
           </a>
           <a
             href="#contacto"
-            className="border border-ivory/30 px-8 py-4 font-display text-sm font-bold uppercase tracking-[0.14em] text-ivory/85 transition hover:border-ivory"
+            className="border border-ivory/30 bg-graphite/40 px-7 py-4 font-display text-xs font-bold uppercase tracking-[0.14em] text-ivory/90 transition hover:border-ivory"
           >
-            Hablar con Irei
+            HABLAR CON IREI
           </a>
         </div>
       </div>

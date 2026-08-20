@@ -9,42 +9,26 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="bg-charcoal py-14">
-      <div className="mx-auto max-w-content px-6 md:px-12">
-        <div className="flex flex-col items-start justify-between gap-8 border-b border-white/10 pb-10 md:flex-row md:items-center">
-          <div>
-            <img
-              src="/images/IREI_SENSEI_LOGO_PRINCIPAL.png"
-              alt="IREI SENSEI Personal Trainer"
-              className="h-10 w-auto object-contain"
-            />
-          </div>
-
-          <nav className="flex flex-wrap gap-x-6 gap-y-2">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="font-display text-xs uppercase tracking-[0.1em] text-ivory/55 hover:text-ivory"
-              >
-                {l.label}
-              </a>
-            ))}
-          </nav>
-
-          <a
-            href="https://www.instagram.com/irei.sensei/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-display text-xs uppercase tracking-[0.1em] text-hinomaru"
-          >
-            @irei.sensei
+    <footer className="bg-[#121212] border-t border-white/10 py-6 text-ivory/60 font-display text-[11px]">
+      <div className="mx-auto flex max-w-content flex-wrap items-center justify-between gap-4 px-6 md:px-12">
+        <div className="flex flex-wrap items-center gap-6">
+          <a href="https://wa.me/51947864029" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-ivory">
+            <span className="text-hinomaru">💬</span> [WHATSAPP] +51 947 864 029
           </a>
+          <a href="mailto:isamuirei@gmail.com" className="flex items-center gap-1.5 hover:text-ivory">
+            <span className="text-hinomaru">✉</span> [EMAIL] isamuirei@gmail.com
+          </a>
+          <span className="flex items-center gap-1.5">
+            <span className="text-hinomaru">📍</span> [UBICACIÓN] San Miguel, Lima - Perú
+          </span>
         </div>
 
-        <p className="mt-8 font-serif text-sm italic text-ivory/40">
-          Entrena tu cuerpo. Forja tu disciplina.
-        </p>
+        <div className="flex items-center gap-6">
+          <a href="https://www.instagram.com/irei.sensei/" target="_blank" rel="noopener noreferrer" className="hover:text-ivory text-hinomaru font-bold">
+            @irei.sensei
+          </a>
+          <span>© 2024 Irei Sensei. Todos los derechos reservados.</span>
+        </div>
       </div>
     </footer>
   );
