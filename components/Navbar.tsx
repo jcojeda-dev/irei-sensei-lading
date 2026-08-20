@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { motion } from "framer-motion";
+
 const links = [
   { label: "Inicio", href: "#inicio" },
   { label: "Programas", href: "#programas" },
@@ -16,12 +18,16 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-charcoal/90 backdrop-blur">
-      <div className="mx-auto flex max-w-content items-center justify-between px-5 py-4 md:px-10">
+      <div className="mx-auto flex max-w-content items-center justify-between px-5 py-3 md:px-10">
         <a href="#inicio" className="flex items-center gap-3">
-          <img
+          <motion.img
+            initial={{ opacity: 0, scale: 0.9, y: -5 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            whileHover={{ scale: 1.06, filter: "brightness(1.15)" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             src="/images/IREI_SENSEI_LOGO_PRINCIPAL.png"
             alt="IREI SENSEI Personal Trainer"
-            className="h-9 w-auto object-contain md:h-10"
+            className="h-12 w-auto object-contain md:h-14 lg:h-16 drop-shadow-lg"
           />
         </a>
 

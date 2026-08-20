@@ -6,15 +6,15 @@ export default function Programs() {
     <section id="programas" className="relative overflow-hidden bg-[#DED6C9] py-24 text-charcoal md:py-32">
       {/* Background Samurai Left */}
       <img
-        src="/images/samurai-left.svg"
-        alt="Samurai Art Left"
-        className="pointer-events-none absolute -left-10 top-10 z-0 h-[600px] w-auto opacity-40 mix-blend-multiply hidden xl:block"
+        src="/images/Samurai izquierda.png"
+        alt="Samurai Izquierda"
+        className="pointer-events-none absolute -left-10 top-16 z-0 h-[650px] w-auto opacity-70 mix-blend-multiply hidden xl:block object-contain"
       />
       {/* Background Samurai Right */}
       <img
-        src="/images/samurai-right.svg"
-        alt="Samurai Art Right"
-        className="pointer-events-none absolute -right-10 top-10 z-0 h-[600px] w-auto opacity-40 mix-blend-multiply hidden xl:block"
+        src="/images/samurai derecha.png"
+        alt="Samurai Derecha"
+        className="pointer-events-none absolute -right-10 top-16 z-0 h-[650px] w-auto opacity-70 mix-blend-multiply hidden xl:block object-contain"
       />
 
       <div className="relative z-10 mx-auto max-w-content px-6 md:px-12">

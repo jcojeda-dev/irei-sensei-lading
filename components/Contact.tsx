@@ -11,7 +11,7 @@ export default function Contact() {
     const dias = (formData.get("dias") as string) || "";
     const whatsapp = (formData.get("whatsapp") as string) || "";
 
-    const message = `Hola Isamu, quiero solicitar mi evaluación. Nombre: ${nombre} Edad: ${edad} Objetivo: ${objetivo} Experiencia: ${experiencia} Días disponibles: ${dias} Mi WhatsApp: ${whatsapp}`;
+    const message = `Hola Isamu, quiero solicitar mi evaluación.\nNombre: ${nombre}\nEdad: ${edad}\nObjetivo: ${objetivo}\nExperiencia: ${experiencia}\nDías disponibles: ${dias}\nMi WhatsApp: ${whatsapp}`;
     const encodedUrl = `https://wa.me/51947864029?text=${encodeURIComponent(message)}`;
     window.open(encodedUrl, "_blank");
   }
