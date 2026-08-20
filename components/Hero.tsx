@@ -63,15 +63,15 @@ export default function Hero() {
         <div className="absolute inset-0 z-20 bg-gradient-to-r from-charcoal/80 via-transparent to-transparent pointer-events-none hidden md:block" />
         <div className="absolute inset-0 z-20 bg-gradient-to-t from-charcoal via-transparent to-transparent pointer-events-none" />
 
-        {/* Vertical Japanese Calligraphy on Far Right */}
-        <div className="absolute right-6 top-28 z-30 hidden flex-col items-center gap-4 text-ivory/70 lg:flex">
-          <span className="font-serif text-2xl tracking-widest text-ivory/90 [writing-mode:vertical-rl] drop-shadow">
+        {/* Japanese Calligraphy Badge on Right / Top-Right for mobile & desktop */}
+        <div className="absolute right-4 top-4 z-30 flex flex-col items-center gap-2 text-ivory/80 md:right-6 md:top-28 md:gap-4">
+          <span className="font-serif text-lg tracking-widest text-ivory/90 [writing-mode:vertical-rl] md:text-2xl drop-shadow">
             継続は力なり
           </span>
-          <span className="font-display text-[10px] uppercase tracking-[0.2em] text-ivory/50">
+          <span className="font-display text-[9px] uppercase tracking-[0.18em] text-ivory/60 md:text-[10px] md:tracking-[0.2em]">
             LA CONSTANCIA ES PODER
           </span>
-          <span className="flex h-7 w-7 items-center justify-center rounded-sm bg-hinomaru text-xs font-bold text-ivory shadow">
+          <span className="flex h-6 w-6 items-center justify-center rounded-sm bg-hinomaru text-[10px] font-bold text-ivory md:h-7 md:w-7 md:text-xs shadow">
             印
           </span>
         </div>

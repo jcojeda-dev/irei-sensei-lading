@@ -8,13 +8,13 @@ export default function Programs() {
       <img
         src="/images/Samurai izquierda.png"
         alt="Samurai Izquierda"
-        className="pointer-events-none absolute -left-10 top-16 z-0 h-[650px] w-auto opacity-70 mix-blend-multiply hidden xl:block object-contain"
+        className="pointer-events-none absolute -left-12 top-10 z-0 h-[380px] w-auto opacity-25 mix-blend-multiply sm:h-[480px] md:opacity-40 lg:opacity-60 xl:-left-10 xl:top-16 xl:h-[650px] object-contain"
       />
       {/* Background Samurai Right */}
       <img
         src="/images/samurai derecha.png"
         alt="Samurai Derecha"
-        className="pointer-events-none absolute -right-10 top-16 z-0 h-[650px] w-auto opacity-70 mix-blend-multiply hidden xl:block object-contain"
+        className="pointer-events-none absolute -right-12 bottom-10 z-0 h-[380px] w-auto opacity-25 mix-blend-multiply sm:h-[480px] md:opacity-40 lg:opacity-60 xl:-right-10 xl:top-16 xl:h-[650px] object-contain"
       />
 
       <div className="relative z-10 mx-auto max-w-content px-6 md:px-12">
