@@ -45,7 +45,7 @@ export default function Hero() {
       {/* Imagen & Caligrafía Japonesa Derecha */}
       <div className="relative flex min-h-[450px] w-full items-end justify-center overflow-hidden md:min-h-screen md:w-[50%]">
         <img
-          src="/images/Irei sensei trainer.jpg"
+          src="/images/Irei sensei trainer 2.jpg"
           alt="Isamu Irei - Personal Trainer"
           className="relative z-10 h-full max-h-[85vh] w-auto object-cover object-top filter brightness-95 contrast-105"
         />
