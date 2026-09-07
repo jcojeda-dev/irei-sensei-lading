@@ -21,7 +21,8 @@ export default function ActualizarPasswordPage() {
     const { error } = await supabase.auth.updateUser({ password })
 
     if (error) {
-      setError('No se pudo actualizar la contraseña. El link puede haber expirado.')
+      console.error('Error actualizando password:', error)
+      setError(`[DEBUG] ${error.message}`)
       setCargando(false)
       return
     }
