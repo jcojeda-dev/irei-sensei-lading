@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 
@@ -12,6 +12,28 @@ export default function ActualizarPasswordPage() {
   const [cargando, setCargando] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [listo, setListo] = useState(false)
+  const [sesionLista, setSesionLista] = useState(false)
+
+  useEffect(() => {
+    // El link de recuperación llega con el token en el hash (#access_token=...),
+    // no como cookie. Hay que leerlo manualmente y establecer la sesión.
+    const hash = window.location.hash.replace(/^#/, '')
+    const params = new URLSearchParams(hash)
+    const access_token = params.get('access_token')
+    const refresh_token = params.get('refresh_token')
+
+    if (access_token && refresh_token) {
+      supabase.auth.setSession({ access_token, refresh_token }).then(({ error }) => {
+        if (error) {
+          setError('El link de recuperación no es válido o ya expiró.')
+        } else {
+          setSesionLista(true)
+        }
+      })
+    } else {
+      setError('Falta el token de recuperación en el link.')
+    }
+  }, [])
 
   async function actualizar(e: React.FormEvent) {
     e.preventDefault()
@@ -21,8 +43,7 @@ export default function ActualizarPasswordPage() {
     const { error } = await supabase.auth.updateUser({ password })
 
     if (error) {
-      console.error('Error actualizando password:', error)
-      setError(`[DEBUG] ${error.message}`)
+      setError('No se pudo actualizar la contraseña. El link puede haber expirado.')
       setCargando(false)
       return
     }
@@ -79,11 +100,15 @@ export default function ActualizarPasswordPage() {
 
             <button
               type="submit"
-              disabled={cargando}
+              disabled={cargando || !sesionLista}
               className="w-full bg-[#a3272a] hover:bg-[#8c2124] disabled:opacity-50
                          text-white font-medium rounded px-3 py-2.5 transition-colors"
             >
-              {cargando ? 'Actualizando…' : 'Actualizar contraseña'}
+              {cargando
+                ? 'Actualizando…'
+                : sesionLista
+                ? 'Actualizar contraseña'
+                : 'Verificando link…'}
             </button>
           </form>
         )}
