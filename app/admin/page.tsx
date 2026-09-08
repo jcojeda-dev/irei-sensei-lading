@@ -1,4 +1,4 @@
-import { createClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/admin'
 import AccionesAlumno from './acciones-alumno'
 import BotonSincronizar from './boton-sincronizar'
 
@@ -17,7 +17,10 @@ const ETIQUETA_ESTADO: Record<string, string> = {
 }
 
 export default async function AdminPage() {
-  const supabase = await createClient()
+  // Esta página ya está protegida por el chequeo de rol admin en el
+  // layout, así que usamos el cliente con service role (se salta RLS)
+  // en vez de depender de las políticas de RLS aquí.
+  const supabase = createAdminClient()
 
   const { data: usuarios } = await supabase
     .from('usuarios')
