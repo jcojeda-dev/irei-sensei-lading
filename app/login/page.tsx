@@ -18,7 +18,7 @@ export default function LoginPage() {
     setError(null)
     setCargando(true)
 
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password })
 
     if (error) {
       setError('Correo o contraseña incorrectos.')
@@ -26,7 +26,13 @@ export default function LoginPage() {
       return
     }
 
-    router.push('/dashboard')
+    const { data: perfil } = await supabase
+      .from('perfiles')
+      .select('rol')
+      .eq('id', data.user.id)
+      .single()
+
+    router.push(perfil?.rol === 'admin' ? '/admin' : '/dashboard')
     router.refresh()
   }
 
