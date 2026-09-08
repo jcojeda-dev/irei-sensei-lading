@@ -43,12 +43,20 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <a
-          href="#contacto"
-          className="hidden shrink-0 border border-hinomaru px-5 py-2 font-display text-[13px] font-bold uppercase tracking-[0.14em] text-hinomaru transition hover:bg-hinomaru hover:text-ivory md:inline-block"
-        >
-          Empieza ahora
-        </a>
+        <div className="hidden shrink-0 items-center gap-3 md:flex">
+          <a
+            href="/login"
+            className="font-display text-[13px] font-medium uppercase tracking-[0.14em] text-ivory/70 transition hover:text-ivory"
+          >
+            Ingresar
+          </a>
+          <a
+            href="#contacto"
+            className="border border-hinomaru px-5 py-2 font-display text-[13px] font-bold uppercase tracking-[0.14em] text-hinomaru transition hover:bg-hinomaru hover:text-ivory"
+          >
+            Empieza ahora
+          </a>
+        </div>
 
         <button
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
@@ -75,6 +83,13 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            <a
+              href="/login"
+              onClick={() => setOpen(false)}
+              className="border-b border-white/5 py-4 font-display text-sm uppercase tracking-[0.14em] text-ivory/80"
+            >
+              Ingresar
+            </a>
             <a
               href="#contacto"
               onClick={() => setOpen(false)}
