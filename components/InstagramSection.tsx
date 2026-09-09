@@ -2,12 +2,12 @@ import Image from "next/image";
 
 const igPosts = [
   "/images/Irei sensei trainer.jpg",
+  "/images/Maria F. despues gym.png",
   "/images/Cesar despues.jpg",
+  "/images/Valeria A despues gym.png",
   "/images/Irei sensei trainer 2.jpg",
-  "/images/Cesar antes.jpg",
-  "/images/Irei sensei trainer.jpg",
-  "/images/Cesar despues.jpg",
-  "/images/Irei sensei trainer 2.jpg",
+  "/images/Maria F. Antes del gym.png",
+  "/images/Valeria A Antes del gym.png",
 ];
 
 export default function InstagramSection() {

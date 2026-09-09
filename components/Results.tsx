@@ -4,8 +4,8 @@ const testimonials = [
   {
     id: 1,
     name: "MARÍA F.",
-    imgBefore: "/images/Cesar antes.jpg",
-    imgAfter: "/images/Cesar despues.jpg",
+    imgBefore: "/images/Maria F. Antes del gym.png",
+    imgAfter: "/images/Maria F. despues gym.png",
     quote: "Irei me ayudó a construir disciplina y a transformar mi cuerpo sin dietas extremas.",
     stat1Label: "PESO",
     stat1Val: "-7 KG",
@@ -30,8 +30,8 @@ const testimonials = [
   {
     id: 3,
     name: "VALERIA A.",
-    imgBefore: "/images/Cesar antes.jpg",
-    imgAfter: "/images/Cesar despues.jpg",
+    imgBefore: "/images/Valeria A Antes del gym.png",
+    imgAfter: "/images/Valeria A despues gym.png",
     quote: "Entrenar se volvió parte de mi vida. Los resultados fueron increíbles.",
     stat1Label: "PESO",
     stat1Val: "-5 KG",

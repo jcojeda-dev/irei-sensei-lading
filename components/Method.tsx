@@ -2,10 +2,10 @@ import Image from "next/image";
 
 const stages = [
   { n: "01", title: "EVALUAMOS", text: "Analizamos tu estado actual, objetivos y experiencia.", img: "/images/Irei sensei trainer 2.jpg" },
-  { n: "02", title: "MEDIMOS", text: "Registramos indicadores de evolución disponibles y confiables.", img: "/images/Cesar antes.jpg" },
+  { n: "02", title: "MEDIMOS", text: "Registramos indicadores de evolución disponibles y confiables.", img: "/images/Maria F. despues gym.png" },
   { n: "03", title: "PLANIFICAMOS", text: "Diseñamos el entrenamiento y plan nutricional según tus objetivos.", img: "/images/Irei sensei trainer.jpg" },
   { n: "04", title: "ENTRENAMOS", text: "Sesiones personalizadas enfocadas en técnica, fuerza y progreso.", img: "/images/Cesar despues.jpg" },
-  { n: "05", title: "AJUSTAMOS", text: "Revisamos tu evolución y adaptamos el programa cuando es necesario.", img: "/images/Irei sensei trainer 2.jpg" },
+  { n: "05", title: "AJUSTAMOS", text: "Revisamos tu evolución y adaptamos el programa cuando es necesario.", img: "/images/Valeria A despues gym.png" },
   { n: "06", title: "EVOLUCIONAMOS", text: "Resultados reales, nuevos hábitos y nuevas metas.", img: "/images/Cesar despues.jpg" },
 ];
 
