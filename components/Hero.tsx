@@ -39,10 +39,10 @@ export default function Hero() {
 
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
           <a
-            href="#contacto"
+            href="/login"
             className="flex items-center justify-center gap-2 bg-hinomaru px-7 py-4 font-display text-xs font-bold uppercase tracking-[0.14em] text-ivory transition hover:bg-hinomaru2 shadow-xl"
           >
-            COMIENZA TU CAMINO <span>&gt;</span>
+            INGRESO ALUMNOS <span>&gt;</span>
           </a>
           <a
             href="#programas"
