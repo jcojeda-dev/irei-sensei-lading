@@ -51,6 +51,9 @@ export default async function AdminLayout({
         <Link href="/admin" className="py-3 text-[#c9c2b8] hover:text-white transition-colors">
           Alumnos
         </Link>
+        <Link href="/admin/conversaciones" className="py-3 text-[#c9c2b8] hover:text-white transition-colors">
+          Conversaciones
+        </Link>
       </nav>
       <main className="p-6">{children}</main>
     </div>
