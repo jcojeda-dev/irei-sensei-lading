@@ -78,6 +78,13 @@ export default function Contact() {
           >
             Quiero mi evaluación
           </button>
+          
+          <p className="mt-3 text-center font-serif text-[11px] text-charcoal/60">
+            🔒 Tus datos están protegidos con cifrado SSL de 256 bits conforme a las políticas de Meta. Lee nuestra{" "}
+            <a href="/politica-de-privacidad" className="text-hinomaru underline">
+              Política de Privacidad
+            </a>.
+          </p>
         </form>
       </div>
     </section>

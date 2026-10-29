@@ -23,7 +23,10 @@ export default function Footer() {
           </span>
         </div>
 
-        <div className="flex items-center gap-6">
+        <div className="flex flex-wrap items-center gap-6">
+          <a href="/politica-de-privacidad" className="hover:text-ivory text-ivory/70 underline flex items-center gap-1">
+            <span>🔒</span> Política de Privacidad (Datos Cifrados)
+          </a>
           <a href="https://www.instagram.com/irei.sensei/" target="_blank" rel="noopener noreferrer" className="hover:text-ivory text-hinomaru font-bold">
             @irei.sensei
           </a>
