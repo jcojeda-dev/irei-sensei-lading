@@ -7,7 +7,6 @@ import Method from "@/components/Method";
 import ValueProps from "@/components/ValueProps";
 import About from "@/components/About";
 import Results from "@/components/Results";
-import Gallery from "@/components/Gallery";
 import InstagramSection from "@/components/InstagramSection";
 import CTAFinal from "@/components/CTAFinal";
 import Contact from "@/components/Contact";
@@ -25,7 +24,6 @@ export default function Home() {
       <ValueProps />
       <About />
       <Results />
-      <Gallery />
       <InstagramSection />
       <CTAFinal />
       <Contact />
