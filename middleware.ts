@@ -26,7 +26,21 @@ export async function middleware(request: NextRequest) {
   )
 
   // Refresca la sesión si el token expiró (necesario en Server Components).
-  await supabase.auth.getUser()
+  const { data: { user } } = await supabase.auth.getUser()
+
+  const pathname = request.nextUrl.pathname
+
+  // Protección perimetral para rutas de admin y dashboard (evita exposición de datos)
+  if ((pathname.startsWith('/admin') || pathname.startsWith('/dashboard')) && !user) {
+    const url = request.nextUrl.clone()
+    url.pathname = '/login'
+    return NextResponse.redirect(url)
+  }
+
+  // Prevenir indexación y rastreo de áreas privadas por bots y buscadores
+  if (pathname.startsWith('/admin') || pathname.startsWith('/dashboard') || pathname.startsWith('/api')) {
+    supabaseResponse.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive')
+  }
 
   return supabaseResponse
 }
