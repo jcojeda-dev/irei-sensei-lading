@@ -18,7 +18,7 @@ export default function ProgramCard({ program }: { program: Program }) {
       )}
 
       <div className="text-center">
-        <span className={`font-brush text-3xl ${featured ? "text-hinomaru" : "text-charcoal/70"}`}>
+        <span className="font-brush text-3xl text-hinomaru drop-shadow-sm">
           {program.kanji}
         </span>
         <h3 className={`mt-2 font-display text-3xl font-black uppercase tracking-wider ${featured ? "text-ivory" : "text-charcoal"}`}>

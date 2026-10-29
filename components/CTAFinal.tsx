@@ -31,7 +31,9 @@ export default function CTAFinal() {
             QUIERO COMENZAR MI CAMINO
           </a>
           <a
-            href="#contacto"
+            href="https://wa.me/51942181498?text=Hola%20Isamu%2C%20quiero%20conversar%20sobre%20los%20programas"
+            target="_blank"
+            rel="noopener noreferrer"
             className="border border-ivory/30 bg-graphite/40 px-7 py-4 font-display text-xs font-bold uppercase tracking-[0.14em] text-ivory/90 transition hover:border-ivory"
           >
             HABLAR CON IREI

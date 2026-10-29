@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { motion } from "framer-motion";
+import Enso from "./Enso";
 
 const links = [
   { label: "Inicio", href: "#inicio" },
@@ -19,7 +20,11 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-charcoal/90 backdrop-blur">
       <div className="mx-auto flex max-w-content items-center justify-between px-5 py-3 md:px-10">
-        <a href="#inicio" className="flex items-center gap-3">
+        <a href="#inicio" className="relative flex items-center justify-center">
+          <Enso
+            className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-16 w-16 text-hinomaru opacity-55 z-0"
+            static
+          />
           <motion.img
             initial={{ opacity: 0, scale: 0.9, y: -5 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -27,7 +32,7 @@ export default function Navbar() {
             transition={{ duration: 0.4, ease: "easeOut" }}
             src="/images/IREI_SENSEI_LOGO_PRINCIPAL.png"
             alt="IREI SENSEI Personal Trainer"
-            className="h-12 w-auto object-contain md:h-14 lg:h-16 drop-shadow-lg"
+            className="relative z-10 h-12 w-auto object-contain md:h-14 lg:h-16 drop-shadow-lg"
           />
         </a>
 

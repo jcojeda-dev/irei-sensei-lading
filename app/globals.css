@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Shippori+Mincho:wght@400;500;600;800&family=Yuji+Syuku&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Shippori+Mincho:wght@400;500;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yuji+Syuku&text=%E8%BA%AB%E4%BD%93%E5%BF%83%E9%AD%82%E7%B5%99%E7%B6%9A%E3%81%AF%E5%8A%9B%E3%81%AA%E3%82%8A%E5%A7%8B%E3%82%81%E3%81%A6%E9%8D%9B%E7%85%89%E4%BE%8D%E5%8D%B0%E3%83%BB&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,7 +8,7 @@
 :root {
   --font-display: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
   --font-serif: "Shippori Mincho", "Noto Serif", serif;
-  --font-brush: "Yuji Syuku", cursive;
+  --font-brush: "Yuji Syuku", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
 }
 
 html {

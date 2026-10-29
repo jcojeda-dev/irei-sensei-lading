@@ -22,7 +22,7 @@ export default function Contact() {
     ];
 
     const messageText = lines.join("\r\n");
-    const encodedUrl = `https://api.whatsapp.com/send?phone=51947864029&text=${encodeURIComponent(messageText)}`;
+    const encodedUrl = `https://api.whatsapp.com/send?phone=51942181498&text=${encodeURIComponent(messageText)}`;
     window.open(encodedUrl, "_blank");
   }
 
@@ -39,7 +39,7 @@ export default function Contact() {
           </p>
 
           <div className="mt-10 space-y-3 border-t border-charcoal/15 pt-6 font-display text-sm">
-            <p className="text-charcoal/70">WhatsApp: <a href="https://wa.me/51947864029" target="_blank" rel="noopener noreferrer" className="text-hinomaru">+51 947 864 029</a></p>
+            <p className="text-charcoal/70">WhatsApp: <a href="https://wa.me/51942181498" target="_blank" rel="noopener noreferrer" className="text-hinomaru">+51 942 181 498</a></p>
             <p className="text-charcoal/70">Instagram: <a href="https://www.instagram.com/irei.sensei/" target="_blank" rel="noopener noreferrer" className="text-hinomaru">@irei.sensei</a></p>
             <p className="text-charcoal/70">Email: <a href="mailto:isamuirei@gmail.com" className="text-hinomaru">isamuirei@gmail.com</a></p>
             <p className="text-charcoal/70">Ubicación: <span className="text-charcoal/40">San Miguel, Lima - Perú</span></p>

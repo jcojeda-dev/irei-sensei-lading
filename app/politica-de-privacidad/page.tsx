@@ -54,7 +54,7 @@ export default function PoliticaDePrivacidad() {
               1. Responsable del Tratamiento de Datos
             </h2>
             <p className="mt-2">
-              El responsable del tratamiento de los datos personales recopilados a través de esta plataforma es **Isamu Irei (Irei Sensei Personal Training)**, con correo de contacto directo: <a href="mailto:isamuirei@gmail.com" className="text-hinomaru underline">isamuirei@gmail.com</a> y WhatsApp oficial: <a href="https://wa.me/51947864029" target="_blank" rel="noopener noreferrer" className="text-hinomaru underline">+51 947 864 029</a> (San Miguel, Lima - Perú).
+              El responsable del tratamiento de los datos personales recopilados a través de esta plataforma es **Isamu Irei (Irei Sensei Personal Training)**, con correo de contacto directo: <a href="mailto:isamuirei@gmail.com" className="text-hinomaru underline">isamuirei@gmail.com</a> y WhatsApp oficial: <a href="https://wa.me/51942181498" target="_blank" rel="noopener noreferrer" className="text-hinomaru underline">+51 942 181 498</a> (San Miguel, Lima - Perú).
             </p>
           </section>
 
@@ -107,7 +107,7 @@ export default function PoliticaDePrivacidad() {
               Tienes derecho a acceder, rectificar, actualizar o solicitar la **eliminación total de tus datos personales** de nuestros registros en cualquier momento.
             </p>
             <p className="mt-2">
-              Para solicitar la eliminación o modificación de tus datos, solo debes enviar un mensaje con el asunto *"Solicitud de eliminación de datos"* a <a href="mailto:isamuirei@gmail.com" className="text-hinomaru underline">isamuirei@gmail.com</a> o escribirnos directamente a nuestro <a href="https://wa.me/51947864029" target="_blank" rel="noopener noreferrer" className="text-hinomaru underline">WhatsApp +51 947 864 029</a>. Responderemos a tu solicitud en un plazo máximo de 24 a 48 horas.
+              Para solicitar la eliminación o modificación de tus datos, solo debes enviar un mensaje con el asunto *"Solicitud de eliminación de datos"* a <a href="mailto:isamuirei@gmail.com" className="text-hinomaru underline">isamuirei@gmail.com</a> o escribirnos directamente a nuestro <a href="https://wa.me/51942181498" target="_blank" rel="noopener noreferrer" className="text-hinomaru underline">WhatsApp +51 942 181 498</a>. Responderemos a tu solicitud en un plazo máximo de 24 a 48 horas.
             </p>
           </section>
         </div>

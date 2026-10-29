@@ -15,16 +15,15 @@ export default function Hero() {
       </div>
 
       {/* Background Japanese Enso Art */}
-      <Enso className="pointer-events-none absolute -left-20 top-1/4 z-0 h-[90vw] w-[90vw] max-w-[650px] text-hinomaru/20 md:-left-10 md:h-[500px] md:w-[500px]" static />
+      <Enso className="pointer-events-none absolute -left-16 top-20 z-0 h-[100vw] w-[100vw] max-w-[550px] text-hinomaru opacity-40 md:-left-10 md:top-1/4 md:h-[500px] md:w-[500px] md:opacity-25" static />
 
       {/* Contenido Izquierda */}
       <div className="relative z-10 flex w-full flex-col justify-center px-6 py-12 md:w-[50%] md:px-12 lg:px-16">
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <p className="font-serif text-xs uppercase tracking-widest2 text-ivory/90">
             CUERPO · MENTE · ESPÍRITU
           </p>
-          <span className="font-serif text-xs text-ivory/50">身体 · 心 · 魂</span>
-          <span className="inline-block rounded-sm bg-hinomaru px-1.5 py-0.5 text-[10px] font-bold text-ivory">印</span>
+          <span className="font-brush text-base font-normal tracking-wider text-hinomaru drop-shadow">身体 · 心 · 魂</span>
         </div>
 
         <h1 className="mt-6 font-display text-4xl font-black uppercase leading-[0.98] tracking-tight text-ivory md:text-5xl lg:text-6xl drop-shadow-md">
