@@ -60,8 +60,8 @@ export default function Footer() {
             <a href="/politica-de-privacidad" className="hover:text-ivory text-ivory/70 underline flex items-center gap-1">
               <span>🔒</span> Política de Privacidad (Datos Cifrados)
             </a>
-            <a href="https://www.instagram.com/irei.sensei/" target="_blank" rel="noopener noreferrer" className="hover:text-ivory text-hinomaru font-bold">
-              @irei.sensei
+            <a href="https://www.instagram.com/isamuirei" target="_blank" rel="noopener noreferrer" className="hover:text-ivory text-hinomaru font-bold">
+              @isamuirei
             </a>
             <span>© {currentYear} Irei Sensei. Todos los derechos reservados.</span>
           </div>

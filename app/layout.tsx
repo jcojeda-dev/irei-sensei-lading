@@ -107,7 +107,7 @@ const jsonLd = {
         "San Isidro",
         "Lima",
       ],
-      sameAs: ["https://www.instagram.com/irei.sensei/"],
+      sameAs: ["https://www.instagram.com/isamuirei/"],
     },
     {
       "@type": "Person",
@@ -126,24 +126,24 @@ const jsonLd = {
         {
           "@type": "Offer",
           name: "Programa Hajimete",
-          description: "12 sesiones de entrenamiento personalizado con evaluación inicial y medición.",
-          price: "1150",
+          description: "8 sesiones de entrenamiento personalizado con seguimiento básico y ajustes.",
+          price: "850",
           priceCurrency: "PEN",
           url: `${siteUrl}/#programas`,
         },
         {
           "@type": "Offer",
           name: "Programa Tanren (Más elegido)",
-          description: "20 sesiones con planificación nutricional, medición corporal y seguimiento por WhatsApp.",
-          price: "1700",
+          description: "12 sesiones con planificación nutricional, medición corporal y seguimiento por WhatsApp.",
+          price: "1200",
           priceCurrency: "PEN",
           url: `${siteUrl}/#programas`,
         },
         {
           "@type": "Offer",
           name: "Programa Samurai",
-          description: "24 sesiones con acompañamiento prioritario, ajustes avanzados y maestría física.",
-          price: "2100",
+          description: "20 sesiones con acompañamiento prioritario, ajustes avanzados y maestría física.",
+          price: "1700",
           priceCurrency: "PEN",
           url: `${siteUrl}/#programas`,
         },
@@ -165,7 +165,7 @@ const jsonLd = {
           name: "¿Cuáles son los programas y tarifas de Irei Sensei?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Ofrece 3 programas adaptados: Hajimete (12 sesiones por S/ 1,150), Tanren (20 sesiones por S/ 1,700) y Samurai (24 sesiones por S/ 2,100), todos con evaluación y seguimiento individualizado.",
+            text: "Ofrece 3 programas adaptados: Hajimete (8 sesiones por S/ 850), Tanren (12 sesiones por S/ 1,200) y Samurai (20 sesiones por S/ 1,700), todos con seguimiento individualizado.",
           },
         },
         {

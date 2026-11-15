@@ -19,11 +19,11 @@ export default function InstagramSection() {
             <h2 className="font-display text-2xl font-black uppercase text-ivory tracking-wider">
               SIGUE EL CAMINO
             </h2>
-            <p className="font-display text-xs text-hinomaru tracking-widest mt-1">@irei.sensei</p>
+            <p className="font-display text-xs text-hinomaru tracking-widest mt-1">@isamuirei</p>
           </div>
 
           <a
-            href="https://www.instagram.com/irei.sensei/"
+            href="https://www.instagram.com/isamuirei"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-hinomaru px-6 py-3 font-display text-xs font-bold uppercase tracking-[0.14em] text-ivory transition hover:bg-hinomaru2"
