@@ -1,4 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
+import MisDocumentos from './mis-documentos'
 
 const ESTILO_ESTADO: Record<string, string> = {
   activa: 'bg-[#1f4d2e] text-[#7fd99a]',
@@ -131,6 +132,10 @@ export default async function DashboardPage() {
             por WhatsApp en cuanto lo esté.
           </p>
         )}
+      </Tarjeta>
+
+      <Tarjeta titulo="Mis documentos">
+        <MisDocumentos usuarioId={usuario.id} />
       </Tarjeta>
 
       <Tarjeta titulo="Avance de entrenamiento">
