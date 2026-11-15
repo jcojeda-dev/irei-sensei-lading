@@ -25,6 +25,13 @@ export default function WhatsAppChannelModal() {
     sessionStorage.setItem("irei_wa_channel_modal_dismissed", "true");
   };
 
+  const handleOpenChannel = () => {
+    sessionStorage.setItem("irei_wa_channel_modal_dismissed", "true");
+    setTimeout(() => {
+      setIsOpen(false);
+    }, 200);
+  };
+
   // Cerrar con tecla Escape
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -139,7 +146,7 @@ export default function WhatsAppChannelModal() {
               href={WHATSAPP_CHANNEL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={handleClose}
+              onClick={handleOpenChannel}
               className="mt-6 flex w-full items-center justify-center gap-3 rounded-xl bg-[#25D366] px-6 py-3.5 font-display text-xs font-bold uppercase tracking-[0.14em] text-[#0A180E] shadow-lg shadow-[#25D366]/25 transition-all duration-300 hover:bg-[#20bd5a] hover:shadow-xl hover:shadow-[#25D366]/35 active:scale-98"
             >
               <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">

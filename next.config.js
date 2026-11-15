@@ -36,10 +36,10 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com data:",
       "img-src 'self' data: blob: https:",
-      "connect-src 'self' https://*.supabase.co https://api.whatsapp.com https://wa.me https://va.vercel-scripts.com",
+      "connect-src 'self' https://*.supabase.co https://api.whatsapp.com https://wa.me https://whatsapp.com https://*.whatsapp.com https://va.vercel-scripts.com",
       "frame-ancestors 'none'",
       "base-uri 'self'",
-      "form-action 'self' https://api.whatsapp.com https://wa.me",
+      "form-action 'self' https://api.whatsapp.com https://wa.me https://whatsapp.com https://*.whatsapp.com",
     ].join('; '),
   },
 ];
