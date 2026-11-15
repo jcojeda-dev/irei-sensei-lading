@@ -1,115 +1,93 @@
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
 import { createAdminClient } from '@/lib/supabase/admin'
-import { UUID_RE } from '@/lib/admin-guard'
-import SubirDocumento from './subir-documento'
-import AccionesDocumento from './acciones-documento'
+import AccionesAlumno from './acciones-alumno'
+import BotonSincronizar from './boton-sincronizar'
 
-export const dynamic = 'force-dynamic'
-
-const BUCKET = 'documentos-alumnos'
-
-const ETIQUETA_TIPO: Record<string, string> = {
-  dieta: 'Dieta',
-  rutina: 'Rutina',
-  historial_dieta: 'Historial · dieta',
-  historial_rutina: 'Historial · rutina',
-  otro: 'Otro',
+const ESTILO_ESTADO: Record<string, string> = {
+  activa: 'bg-[#1f4d2e] text-[#7fd99a]',
+  por_vencer: 'bg-[#4d3d1f] text-[#e0b96a]',
+  vencida: 'bg-[#4d1f1f] text-[#e07a7a]',
+  sin_membresia: 'bg-[#2a2a2a] text-[#9a9a9a]',
 }
 
-function formatearTamano(bytes: number) {
-  return bytes < 1024 * 1024
-    ? `${Math.max(1, Math.round(bytes / 1024))} KB`
-    : `${(bytes / (1024 * 1024)).toFixed(1)} MB`
+const ETIQUETA_ESTADO: Record<string, string> = {
+  activa: 'Activa',
+  por_vencer: 'Por vencer',
+  vencida: 'Vencida',
+  sin_membresia: 'Sin membresía',
 }
 
-export default async function AlumnoPage({ params }: { params: { id: string } }) {
-  if (!UUID_RE.test(params.id)) notFound()
+export default async function AdminPage() {
+  // Esta página ya está protegida por el chequeo de rol admin en el
+  // layout, así que usamos el cliente con service role (se salta RLS)
+  // en vez de depender de las políticas de RLS aquí.
+  const supabase = createAdminClient()
 
-  // Protegida por el chequeo de rol admin del layout de /admin.
-  const admin = createAdminClient()
-
-  const { data: alumno } = await admin
+  const { data: usuarios } = await supabase
     .from('usuarios')
     .select('id, nombre, whatsapp, plan, fecha_vencimiento, estado_membresia')
-    .eq('id', params.id)
-    .maybeSingle()
-  if (!alumno) notFound()
-
-  const { data: documentos } = await admin
-    .from('documentos_alumno')
-    .select('id, tipo, titulo, ruta, tamano_bytes, creado_en')
-    .eq('usuario_id', alumno.id)
-    .order('creado_en', { ascending: false })
-
-  // Enlaces temporales (10 minutos) solo para esta vista del admin.
-  const enlaces: Record<string, string> = {}
-  if (documentos && documentos.length > 0) {
-    const { data: firmados } = await admin.storage
-      .from(BUCKET)
-      .createSignedUrls(documentos.map((d) => d.ruta), 600)
-    firmados?.forEach((f) => {
-      if (f.path && f.signedUrl) enlaces[f.path] = f.signedUrl
-    })
-  }
+    .order('nombre')
 
   return (
-    <div className="space-y-6 max-w-3xl">
-      <div>
-        <Link href="/admin" className="text-sm text-[#9a9a9a] hover:text-white">
-          ← Volver a alumnos
-        </Link>
-        <h1 className="text-2xl font-medium mt-2">{alumno.nombre}</h1>
-        <p className="text-sm text-[#9a9a9a]">
-          +{alumno.whatsapp} · Plan {alumno.plan ?? '—'} · Vence{' '}
-          {alumno.fecha_vencimiento ?? '—'}
+    <div>
+      <div className="flex items-center justify-between mb-6">
+        <h1 className="text-2xl font-medium">Alumnos</h1>
+        <BotonSincronizar />
+      </div>
+
+      {!usuarios || usuarios.length === 0 ? (
+        <p className="text-[#9a9a9a]">
+          Todavía no hay alumnos. Sincroniza el Google Sheet para cargarlos.
         </p>
-      </div>
-
-      <SubirDocumento usuarioId={alumno.id} />
-
-      <div>
-        <h2 className="text-sm text-[#9a9a9a] uppercase tracking-wide mb-3">
-          Carpeta del alumno
-        </h2>
-        {!documentos || documentos.length === 0 ? (
-          <p className="text-[#9a9a9a] text-sm">Todavía no hay documentos.</p>
-        ) : (
-          <ul className="border border-[#2a2a2a] rounded-lg divide-y divide-[#2a2a2a]">
-            {documentos.map((d) => (
-              <li key={d.id} className="p-4 space-y-2">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <p className="text-sm">{d.titulo}</p>
-                    <p className="text-xs text-[#9a9a9a]">
-                      {ETIQUETA_TIPO[d.tipo] ?? d.tipo} ·{' '}
-                      {new Date(d.creado_en).toLocaleDateString('es-PE', {
-                        timeZone: 'America/Lima',
-                      })}{' '}
-                      · {formatearTamano(d.tamano_bytes)}
-                    </p>
-                  </div>
-                  {enlaces[d.ruta] && (
-                    <a
-                      href={enlaces[d.ruta]}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm underline text-[#c9c2b8] hover:text-white shrink-0"
+      ) : (
+        <div className="border border-[#2a2a2a] rounded-lg overflow-hidden">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="bg-[#161616] text-left text-[#9a9a9a]">
+                <th className="px-4 py-3 font-normal">Nombre</th>
+                <th className="px-4 py-3 font-normal">WhatsApp</th>
+                <th className="px-4 py-3 font-normal">Plan</th>
+                <th className="px-4 py-3 font-normal">Vencimiento</th>
+                <th className="px-4 py-3 font-normal">Estado</th>
+                <th className="px-4 py-3 font-normal">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {usuarios.map((u) => (
+                <tr key={u.id} className="border-t border-[#2a2a2a]">
+                  <td className="px-4 py-3">
+                    <Link
+                      href={`/admin/alumnos/${u.id}`}
+                      className="hover:underline underline-offset-4"
                     >
-                      Abrir PDF
-                    </a>
-                  )}
-                </div>
-                <AccionesDocumento
-                  usuarioId={alumno.id}
-                  documentoId={d.id}
-                  puedeAvisar={d.tipo === 'dieta'}
-                />
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+                      {u.nombre}
+                    </Link>
+                  </td>
+                  <td className="px-4 py-3 text-[#9a9a9a]">{u.whatsapp}</td>
+                  <td className="px-4 py-3 text-[#9a9a9a] capitalize">
+                    {u.plan ?? '—'}
+                  </td>
+                  <td className="px-4 py-3 text-[#9a9a9a]">
+                    {u.fecha_vencimiento ?? '—'}
+                  </td>
+                  <td className="px-4 py-3">
+                    <span
+                      className={`px-2 py-1 rounded text-xs ${
+                        ESTILO_ESTADO[u.estado_membresia] ?? ESTILO_ESTADO.sin_membresia
+                      }`}
+                    >
+                      {ETIQUETA_ESTADO[u.estado_membresia] ?? u.estado_membresia}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3">
+                    <AccionesAlumno usuarioId={u.id} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   )
 }
