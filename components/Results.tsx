@@ -3,9 +3,9 @@ import Image from "next/image";
 const testimonials = [
   {
     id: 1,
-    name: "MARÍA F.",
-    imgBefore: "/images/Maria F. Antes del gym.png",
-    imgAfter: "/images/Maria F. despues gym.png",
+    name: "SUMIKO Y.",
+    imgBefore: "/images/Sumiko Y Antes.jpeg",
+    imgAfter: "/images/Sumiko Y Despues.jpeg",
     quote: "Irei me ayudó a construir disciplina y a transformar mi cuerpo sin dietas extremas.",
     stat1Label: "PESO",
     stat1Val: "-7 KG",

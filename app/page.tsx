@@ -7,6 +7,8 @@ import Method from "@/components/Method";
 import ValueProps from "@/components/ValueProps";
 import About from "@/components/About";
 import Results from "@/components/Results";
+import WhatsAppChannelBanner from "@/components/WhatsAppChannelBanner";
+import WhatsAppChannelModal from "@/components/WhatsAppChannelModal";
 import InstagramSection from "@/components/InstagramSection";
 import CTAFinal from "@/components/CTAFinal";
 import Contact from "@/components/Contact";
@@ -24,10 +26,12 @@ export default function Home() {
       <ValueProps />
       <About />
       <Results />
+      <WhatsAppChannelBanner />
       <InstagramSection />
       <CTAFinal />
       <Contact />
       <Footer />
+      <WhatsAppChannelModal />
 
       {/* WhatsApp CTA sticky para mobile */}
       <a
