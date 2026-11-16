@@ -1,4 +1,5 @@
 import type { Program } from "@/data/programs";
+import PlanCTA from "./PlanCTA";
 
 export default function ProgramCard({ program }: { program: Program }) {
   const featured = program.featured;
@@ -58,8 +59,8 @@ export default function ProgramCard({ program }: { program: Program }) {
         <p className={`font-display text-3xl font-black tracking-tight ${featured ? "text-ivory" : "text-charcoal"}`}>
           {program.price}
         </p>
-        <a
-          href="#contacto"
+        <PlanCTA
+          programId={program.id}
           className={`mt-4 block w-full py-4 text-center font-display text-xs font-bold uppercase tracking-[0.14em] transition ${
             featured
               ? "bg-hinomaru text-ivory hover:bg-hinomaru2 shadow"
@@ -67,7 +68,7 @@ export default function ProgramCard({ program }: { program: Program }) {
           }`}
         >
           {program.cta}
-        </a>
+        </PlanCTA>
       </div>
     </div>
   );

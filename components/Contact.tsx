@@ -1,6 +1,27 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
+const PROGRAMAS = [
+  { value: "no_se", label: "Aún no lo sé" },
+  { value: "hajimete", label: "Hajimete" },
+  { value: "tanren", label: "Tanren" },
+  { value: "samurai", label: "Samurai" },
+];
+
 export default function Contact() {
+  const [programa, setPrograma] = useState("no_se");
+
+  // Los botones de los planes avisan aquí cuál eligió la persona.
+  useEffect(() => {
+    function alElegirPlan(e: Event) {
+      const id = (e as CustomEvent<string>).detail;
+      if (PROGRAMAS.some((p) => p.value === id)) setPrograma(id);
+    }
+    window.addEventListener("seleccionar-plan", alElegirPlan);
+    return () => window.removeEventListener("seleccionar-plan", alElegirPlan);
+  }, []);
+
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -10,6 +31,30 @@ export default function Contact() {
     const experiencia = (formData.get("experiencia") as string) || "";
     const dias = (formData.get("dias") as string) || "";
     const whatsapp = (formData.get("whatsapp") as string) || "";
+    const etiquetaPrograma = PROGRAMAS.find((p) => p.value === programa)?.label ?? "Aún no lo sé";
+
+    // Aviso al servidor para que Isamu se entere aunque la persona no termine
+    // de enviar el mensaje en WhatsApp. No bloquea ni impide abrir WhatsApp.
+    try {
+      fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nombre,
+          edad,
+          objetivo,
+          experiencia,
+          dias,
+          whatsapp,
+          programa,
+          // Campo trampa: las personas no lo ven; los bots suelen llenarlo.
+          sitio_web: (formData.get("sitio_web") as string) || "",
+        }),
+        keepalive: true,
+      }).catch(() => {});
+    } catch {
+      /* si falla, el flujo de WhatsApp sigue funcionando igual */
+    }
 
     const lines = [
       "Hola Isamu, quiero solicitar mi evaluación.",
@@ -18,6 +63,7 @@ export default function Contact() {
       `Objetivo: ${objetivo}`,
       `Experiencia: ${experiencia}`,
       `Días disponibles: ${dias}`,
+      `Programa de interés: ${etiquetaPrograma}`,
       `Mi WhatsApp: ${whatsapp}`,
     ];
 
@@ -67,10 +113,39 @@ export default function Contact() {
                 name={field.name}
                 type={field.type}
                 required
+                maxLength={field.type === "number" ? undefined : 200}
                 className="w-full border-b border-charcoal/25 bg-transparent py-2.5 font-serif text-charcoal outline-none transition focus:border-hinomaru"
               />
             </div>
           ))}
+
+          <div>
+            <label
+              htmlFor="programa"
+              className="mb-1.5 block font-display text-[11px] uppercase tracking-[0.12em] text-charcoal/55"
+            >
+              Programa de interés
+            </label>
+            <select
+              id="programa"
+              name="programa"
+              value={programa}
+              onChange={(e) => setPrograma(e.target.value)}
+              className="w-full border-b border-charcoal/25 bg-transparent py-2.5 font-serif text-charcoal outline-none transition focus:border-hinomaru"
+            >
+              {PROGRAMAS.map((p) => (
+                <option key={p.value} value={p.value}>
+                  {p.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Campo trampa anti-bots: oculto para personas. */}
+          <div className="hidden" aria-hidden="true">
+            <label htmlFor="sitio_web">No llenar este campo</label>
+            <input id="sitio_web" name="sitio_web" type="text" tabIndex={-1} autoComplete="off" />
+          </div>
 
           <button
             type="submit"
@@ -78,9 +153,9 @@ export default function Contact() {
           >
             Quiero mi evaluación
           </button>
-          
+
           <p className="mt-3 text-center font-serif text-[11px] text-charcoal/60">
-            🔒 Tus datos están protegidos con cifrado SSL de 256 bits conforme a las políticas de Meta. Lee nuestra{" "}
+            🔒 Tus datos están protegidos con cifrado SSL de 256 bits conforme a las políticas de Meta. Al enviar, aceptas que Irei Sensei use tus datos para contactarte. Lee nuestra{" "}
             <a href="/politica-de-privacidad" className="text-hinomaru underline">
               Política de Privacidad
             </a>.
