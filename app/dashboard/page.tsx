@@ -1,5 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import MisDocumentos from './mis-documentos'
+import ProgresoAlumno from '@/components/progreso/ProgresoAlumno'
+import { normalizarMediciones } from '@/lib/progreso'
 
 const ESTILO_ESTADO: Record<string, string> = {
   activa: 'bg-[#1f4d2e] text-[#7fd99a]',
@@ -57,6 +59,15 @@ export default async function DashboardPage() {
     .limit(1)
     .maybeSingle()
 
+  // Historial completo de mediciones (solo las del propio alumno, por RLS).
+  const { data: historial } = await supabase
+    .from('evaluaciones')
+    .select('fecha, peso_kg, porcentaje_grasa, objetivo')
+    .eq('usuario_id', usuario.id)
+    .order('fecha', { ascending: true })
+    .limit(500)
+  const mediciones = normalizarMediciones(historial)
+
   const mesActual = new Date().toISOString().slice(0, 7) + '-01'
   const { data: programa } = await supabase
     .from('programas_alimenticios')
@@ -113,6 +124,10 @@ export default async function DashboardPage() {
         ) : (
           <p className="text-[#9a9a9a] text-sm">Todavía no tienes una evaluación registrada.</p>
         )}
+      </Tarjeta>
+
+      <Tarjeta titulo="Mi progreso">
+        <ProgresoAlumno mediciones={mediciones} objetivo={[...(historial ?? [])].reverse().find((h) => h.objetivo)?.objetivo ?? null} />
       </Tarjeta>
 
       <Tarjeta titulo="Programa alimenticio del mes">

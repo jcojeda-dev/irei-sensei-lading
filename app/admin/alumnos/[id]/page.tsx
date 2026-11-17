@@ -4,6 +4,8 @@ import { createAdminClient } from '@/lib/supabase/admin'
 import { UUID_RE } from '@/lib/admin-guard'
 import SubirDocumento from './subir-documento'
 import AccionesDocumento from './acciones-documento'
+import ProgresoAlumno from '@/components/progreso/ProgresoAlumno'
+import { normalizarMediciones } from '@/lib/progreso'
 
 export const dynamic = 'force-dynamic'
 
@@ -36,6 +38,15 @@ export default async function AlumnoPage({ params }: { params: { id: string } })
     .maybeSingle()
   if (!alumno) notFound()
 
+  const { data: historial } = await admin
+    .from('evaluaciones')
+    .select('fecha, peso_kg, porcentaje_grasa, objetivo')
+    .eq('usuario_id', alumno.id)
+    .order('fecha', { ascending: true })
+    .limit(500)
+  const mediciones = normalizarMediciones(historial)
+  const objetivo = [...(historial ?? [])].reverse().find((h) => h.objetivo)?.objetivo ?? null
+
   const { data: documentos } = await admin
     .from('documentos_alumno')
     .select('id, tipo, titulo, ruta, tamano_bytes, creado_en')
@@ -64,6 +75,11 @@ export default async function AlumnoPage({ params }: { params: { id: string } })
           +{alumno.whatsapp} · Plan {alumno.plan ?? '—'} · Vence{' '}
           {alumno.fecha_vencimiento ?? '—'}
         </p>
+      </div>
+
+      <div>
+        <h2 className="text-sm text-[#9a9a9a] uppercase tracking-wide mb-3">Progreso</h2>
+        <ProgresoAlumno mediciones={mediciones} objetivo={objetivo} />
       </div>
 
       <SubirDocumento usuarioId={alumno.id} />
